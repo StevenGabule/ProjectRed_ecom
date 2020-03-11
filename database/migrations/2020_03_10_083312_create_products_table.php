@@ -15,13 +15,12 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', static function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id');
             $table->bigInteger('vendor_id');
             $table->bigInteger('supplier_id');
             $table->smallInteger('category_id');
-            $table->text('avatar');
+            $table->text('product_avatar');
             $table->string('name');
-            $table->string('short_description');
+            $table->text('short_description');
             $table->text('full_description');
             $table->string('slug');
             $table->double('price');

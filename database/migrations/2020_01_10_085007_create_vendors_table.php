@@ -18,7 +18,7 @@ class CreateVendorsTable extends Migration
             $table->bigInteger('user_id');
             $table->text('vendor_avatar');
             $table->string('title');
-            $table->string('short_description');
+            $table->text('short_description');
             $table->text('description');
             $table->string('street_address');
             $table->string('phone_number');

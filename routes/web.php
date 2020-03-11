@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'ProductController@index')->name('product.all');
+Route::get('/home', 'ProductController@index')->name('product.all');
+Route::get('/vendors', 'VendorController@index')->name('vendor.all');

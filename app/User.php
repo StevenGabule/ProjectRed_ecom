@@ -34,4 +34,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function vendor()
+    {
+        return $this->hasMany(Vendor::class);
+    }
 }

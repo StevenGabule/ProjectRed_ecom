@@ -94,5 +94,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="feather" level="application" />
+    <orderEntry type="library" name="Chart" level="application" />
   </component>
 </module>
