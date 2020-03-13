@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\User;
+use Illuminate\Contracts\Support\Renderable;
 
 class HomeController extends Controller
 {
+
     /**
      * Create a new controller instance.
      *
@@ -19,10 +21,17 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return Renderable
      */
     public function index()
     {
-        return view('home');
+        $vendor = User::find(1)->vendor;
+        dd($vendor);
+//        return view('home');
+    }
+
+    public function becomeVendor()
+    {
+        return view('register');
     }
 }

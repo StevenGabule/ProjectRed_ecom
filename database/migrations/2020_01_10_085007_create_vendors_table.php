@@ -25,7 +25,7 @@ class CreateVendorsTable extends Migration
             $table->string('postal_code');
             $table->string('owner');
             $table->string('date_established');
-            $table->tinyInteger('is_active');
+            $table->tinyInteger('is_active')->default(0);
             $table->timestamps();
         });
     }
