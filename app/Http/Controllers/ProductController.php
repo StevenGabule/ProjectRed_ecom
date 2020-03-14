@@ -8,6 +8,7 @@ use App\User;
 use App\Vendor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class ProductController extends Controller
@@ -44,9 +45,16 @@ class ProductController extends Controller
     public function getProduct()
     {
         if (request()->ajax()) {
-            return datatables()->of(Product::latest()->get())
-                ->addColumn('action', static function($data) {
-                   $button = <<<EOT
+            $id = Auth::id();
+            return datatables()->of(DB::table('vendors')
+                ->join('products', 'products.vendor_id', '=', 'vendors.id')
+                ->join('users', 'vendors.user_id', '=', 'users.id')
+                ->select('products.*')
+                ->where('vendors.user_id','=', $id)
+                ->groupBy('products.id')
+            )
+                ->addColumn('action', static function ($data) {
+                    $button = <<<EOT
                     <div class="dropdown no-arrow" style="width: 50px">
                        <a class="dropdown-toggle btn border btn-dashboard" 
                        href="#" role="button" 
@@ -141,7 +149,7 @@ EOT;
     /**
      * Display the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param \App\Product $product
      * @return \Illuminate\Http\Response
      */
     public function show(Product $product)
@@ -152,7 +160,7 @@ EOT;
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param \App\Product $product
      * @return \Illuminate\Http\Response
      */
     public function edit(Product $product)
@@ -163,8 +171,8 @@ EOT;
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product  $product
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Product $product
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Product $product)
@@ -175,7 +183,7 @@ EOT;
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Product  $product
+     * @param \App\Product $product
      * @return \Illuminate\Http\Response
      */
     public function destroy(Product $product)
