@@ -10882,3 +10882,7 @@ a.text-dark:focus {
   }
 }
 
+td {
+  vertical-align: middle;
+}
+

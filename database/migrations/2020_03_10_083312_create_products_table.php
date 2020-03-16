@@ -26,6 +26,7 @@ class CreateProductsTable extends Migration
             $table->double('price');
             $table->bigInteger('qty');
             $table->string('unit');
+            $table->tinyInteger('product_status')->default(1);
             $table->timestamps();
         });
     }

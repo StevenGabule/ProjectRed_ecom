@@ -2,46 +2,22 @@
     <div class="sidebar-sticky">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link active" href="#">
-                    <span data-feather="home"></span>
-                    {{ __('Dashboard') }}
-                </a>
+                <a class="nav-link" href="/home"><i class="fas fa-home mr-3"></i>{{ __('Dashboard') }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span data-feather="file"></span>
-                    {{ __('Orders') }}
-                </a>
+                <a class="nav-link" href="#"><i class="fas fa-cart-arrow-down mr-3"></i>{{ __('Orders') }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('vendor.products') }}">
-                    <span data-feather="shopping-cart"></span>
-                    {{ ('Products') }}
-                </a>
+                <a class="nav-link" href="{{ route('vendor.products') }}"><i class="fab fa-product-hunt mr-3"></i>{{ ('Products') }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span data-feather="users"></span>
-                    {{ __('Customers')  }}
-                </a>
+                <a class="nav-link" href="#"><i class="fas fa-users mr-3"></i>{{ __('Customers') }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span data-feather="message-circle"></span>
-                    {{ __('Messages') }}
-                </a>
+                <a class="nav-link" href="#"><i class="fas fa-comment-dots mr-3"></i>{{ __('Messages') }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span data-feather="bar-chart-2"></span>
-                    {{ __('Analytics') }}
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span data-feather="layers"></span>
-                    {{ __('Integrations') }}
-                </a>
+                <a class="nav-link" href="#"><i class="fas fa-diagnoses mr-3"></i>{{ __('Analytics') }}</a>
             </li>
         </ul>
 
